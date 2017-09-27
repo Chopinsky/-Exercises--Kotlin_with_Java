@@ -19,8 +19,7 @@ class CustomList {
         return new Node(data);
     }
 
-    void printList()
-    {
+    void printList() {
         Node currNode = head;
         while (currNode != null) {
             System.out.print(currNode.data + " ");
@@ -28,8 +27,7 @@ class CustomList {
         }
     }
 
-    void sortedInsert(Node n)
-    {
+    void sortedInsert(Node n) {
         if (head == null || n.data <= head.data){
             n.next = head;
             head = n;
@@ -53,8 +51,7 @@ class CustomList {
         }
     }
 
-    void deleteNode(Node n)
-    {
+    void deleteNode(Node n) {
         if (head == null)
         {
             System.out.println("List is empty...");
@@ -93,8 +90,7 @@ class CustomList {
         this.printList();
     }
 
-    static Integer strComp(LinkedList<String> str1, LinkedList<String> str2)
-    {
+    static Integer strComp(LinkedList<String> str1, LinkedList<String> str2) {
         if ((str1 == null && str2 == null) || str1.size() == 0 && str2.size() == 0)
             return 0;
 

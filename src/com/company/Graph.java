@@ -10,8 +10,7 @@ class Graph {
     private int V;
     private LinkedList<Integer>[] adj;
 
-    Graph(int v)
-    {
+    Graph(int v) {
         this.V = v;
         adj = new LinkedList[v];
         for (int i=0; i < v; i++)
@@ -20,8 +19,7 @@ class Graph {
 
     void addEdge(int v, int w) { adj[v].add(w); }
 
-    void topologicalSort()
-    {
+    void topologicalSort() {
         Stack<Integer> stack = new Stack<>();
 
         boolean visited[] = new boolean[this.V];
@@ -32,14 +30,12 @@ class Graph {
             if (!visited[i])
                 topologicalSortUtil(i, visited, stack);
 
-        while (!stack.isEmpty())
-        {
+        while (!stack.isEmpty()) {
             System.out.print(stack.pop() + " ");
         }
     }
 
-    private void topologicalSortUtil(int i, boolean visited[], Stack<Integer> stack)
-    {
+    private void topologicalSortUtil(int i, boolean visited[], Stack<Integer> stack) {
         visited[i] = true;
 
         for (Integer v: adj[i]) {
