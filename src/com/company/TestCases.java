@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 //import java.util.ArrayList;
 //import kotlin.Pair;
@@ -12,7 +13,8 @@ class TestCases {
         ListToTree,
         StrComp,
         PaindromeSubseq,
-        AStar
+        AStar,
+        DrawSkyLine
     }
 
     static void runTestCase(TestEnum test) {
@@ -42,6 +44,9 @@ class TestCases {
                 break;
             case TopologicalSort:
                 TestCases.runTopologicalSort();
+                break;
+            case DrawSkyLine:
+                drawSkyLines();
                 break;
             default:
                 break;
@@ -188,5 +193,18 @@ class TestCases {
         //ArrayList<Pair<Integer, Integer>> map = new ArrayList<>(15);
         //ArrayList<Pair<Integer, Integer>> path =
         //        AStarKt.aStarSearch(new Pair<>(1, 1), new Pair<>(10, 10), map);
+    }
+
+    private static void drawSkyLines() {
+        LinkedList<Building> buildings = new LinkedList<>();
+        buildings.add(new Building(2, 11, 2));
+        buildings.add(new Building(0, 3, 1));
+        buildings.add(new Building(4, 4, 10));
+        buildings.add(new Building(5, 9, 5));
+        buildings.add(new Building(1, 6, 4));
+        buildings.add(new Building(7, 10, 8));
+
+        SkyLine skyLine = new SkyLine(12, buildings);
+        skyLine.draw();
     }
 }

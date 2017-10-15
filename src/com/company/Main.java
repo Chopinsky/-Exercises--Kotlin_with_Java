@@ -4,7 +4,7 @@ import com.company.TestCases.*;
 
 public class Main {
     public static void main(String[] args) {
-        TestEnum test = TestEnum.TopologicalSort;
+        TestEnum test = TestEnum.DrawSkyLine;
 
         if (args.length > 0) {
             try {
