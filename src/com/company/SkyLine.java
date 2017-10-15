@@ -1,9 +1,6 @@
 package com.company;
 
-import javafx.util.Pair;
-import jdk.nashorn.internal.ir.IfNode;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 
 class Building implements Comparable<Building> {
@@ -64,7 +61,7 @@ class SkyLine {
             start = findProperLoc(b.getStartLoc(), 0, viewSize);
             end = findProperLoc(b.getEndLoc(), start, viewSize);
 
-            for (int loc = b.getStartLoc(); loc <= b.getEndLoc(); loc++) {
+            for (int loc = start; loc <= end; loc++) {
                 if (skyLine[loc] == 0 && b.getHeight() > 0) skyLine[loc] = b.getHeight();
             }
         }
