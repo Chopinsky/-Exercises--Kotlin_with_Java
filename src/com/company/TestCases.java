@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-//import java.util.ArrayList;
-//import kotlin.Pair;
 
 class TestCases {
     public enum TestEnum {
@@ -163,7 +160,7 @@ class TestCases {
             return 0;
 
         int max = 1;
-        String subStr = "";
+        String subStr;
 
         for (int i = 0; i < s.length(); i++) {
             for (int j = s.length(); j > i; j--) {
@@ -202,7 +199,7 @@ class TestCases {
         buildings.add(new Building(4, 4, 10));
         buildings.add(new Building(5, 9, 5));
         buildings.add(new Building(1, 6, 4));
-        buildings.add(new Building(7, 10, 8));
+        buildings.add(new Building(6, 7, 8));
 
         SkyLine skyLine = new SkyLine(12, buildings);
         skyLine.draw();

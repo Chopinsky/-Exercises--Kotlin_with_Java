@@ -1,5 +1,6 @@
 package com.company;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
@@ -41,6 +42,7 @@ class SkyLine {
         this.buildings = new LinkedList<>(Buildings);
     }
 
+    @Contract(pure = true)
     private int findProperLoc(int loc, int startLimit, int endLimit) {
         if (loc < startLimit)
             return startLimit;
@@ -50,11 +52,12 @@ class SkyLine {
         return loc;
     }
 
-    void draw() {
+    private int[] findSkyLine() {
         int[] skyLine = new int[viewSize];
         int start, end;
         Collections.sort(buildings);
 
+        // loop and find the skylines
         Iterator<Building> it = buildings.descendingIterator();
         while (it.hasNext()) {
             Building b = it.next();
@@ -65,6 +68,12 @@ class SkyLine {
                 if (skyLine[loc] == 0 && b.getHeight() > 0) skyLine[loc] = b.getHeight();
             }
         }
+
+        return skyLine;
+    }
+
+    void draw() {
+        int[] skyLine = findSkyLine();
 
         for (int height: skyLine) {
             System.out.print(height+ " ");
